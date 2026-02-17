@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - DevTools Training</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🚀 TechStore Debug</div>
+        <div class="cart-widget">
+            🛒 Total: $<span id="cart-total">0.00</span>
+            <button id="btn-checkout" style="margin-left:10px; padding:5px 10px; cursor:pointer;">Pagar</button>
+        </div>
+    </header>
+
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=4000&auto=format&fit=crop'); background-size: cover;">
+        <h1>La mejor tecnología (cuando carga)</h1>
+        <p>Encuentra los bugs antes de comprar.</p>
+    </section>
+
+    <main class="container">
+        <div class="filters">
+            <input type="text" id="search" class="search-input" placeholder="Buscar productos (ej: Laptop)...">
+            <select id="category-filter" style="padding: 0.5rem;">
+                <option value="all">Todas las categorías</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Monitores">Monitores</option>
+            </select>
+        </div>
+
+        <div id="product-grid">
+            <p style="text-align:center; width:100%;">Cargando inventario...</p>
+        </div>
+    </main>
+
+    <div id="checkout-msg"></div>
+
+    <footer>
+        <p>&copy; 2024 TechStore. <a href="404.html">Política de Privacidad</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

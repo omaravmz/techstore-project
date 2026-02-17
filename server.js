@@ -29,7 +29,7 @@ const products = [
         category: "Periféricos",
         price: 150, 
         description: "Switches azules ruidosos.",
-        image: "https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=4000&auto=format&fit=crop" // BUG: Imagen de 5MB (Performance)
+        image: "https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=500" // BUG: Imagen de 5MB (Performance)
     },
     { 
         id: 4, 
@@ -44,24 +44,12 @@ const products = [
 // API: Listar productos
 // El developer no sabia lo que hacia y puso ese timeout
 app.get('/api/products', (req, res) => {
-    setTimeout(() => {
-        res.json(products);
-    }, 800);
+    res.json(products);
 });
 
-// API: El developr hizo algo raro aqui, siempre deberia ser success
+// API: El developr hizo algo raro aqui, siempre deberia ser success 
 app.post('/api/checkout', (req, res) => {
-    const shouldFail = Math.random() > 0.5;
-    setTimeout(() => {
-        if (shouldFail) {
-            res.status(500).json({ 
-                error: "DB_CONNECTION_TIMEOUT", 
-                details: "El pool de conexiones está saturado." 
-            });
-        } else {
-            res.json({ success: true, orderId: "ORD-" + Math.floor(Math.random() * 10000) });
-        }
-    }, 1500);
+    res.json({ success: true, orderId: "ORD-" + Math.floor(Math.random() * 10000) });
 });
 
 const PORT = process.env.PORT || 3000;

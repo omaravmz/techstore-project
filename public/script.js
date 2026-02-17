@@ -2,8 +2,6 @@
 let cartTotal = 0;
 let productsData = [];
 
-console.log("DEBUG: API Key interna", "sk_test_51MzQ2..."); 
-
 document.addEventListener('DOMContentLoaded', () => {
     fetchProducts();
     
@@ -51,7 +49,7 @@ window.addToCart = (price) => {
     
     console.log(`Agregando ${price} al carrito...`);
 
-    cartTotal = cartTotal + price; 
+    cartTotal = cartTotal + parseFloat(price); 
     
     // Actualizar UI
     document.getElementById('cart-total').textContent = cartTotal;
@@ -65,7 +63,7 @@ window.addToCart = (price) => {
 function filterProducts(e) {
     const term = e.target.value;
 
-    const filtered = productsData.filter(p => p.name.includes(term));
+    const filtered = productsData.filter(p => p.name.toLowerCase().includes(term.toLowerCase()));
     
     renderProducts(filtered);
 }

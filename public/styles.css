@@ -106,6 +106,7 @@ header {
 
 .btn-add:hover {
     background-color: white;
+    color: var(--primary);
 }
 
 /* Footer & Status */
